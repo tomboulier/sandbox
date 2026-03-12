@@ -2,19 +2,19 @@
 
 > CLI pour gérer le cycle de vie des expérimentations de développement.
 
-![CI](https://github.com/thomas-boulier/sandbox/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/tomboulier/sandbox/actions/workflows/ci.yml/badge.svg)
 
 ## Installation
 
 ```bash
 # Avec uv (recommandé)
-uv tool install git+https://github.com/thomas-boulier/sandbox
+uv tool install git+https://github.com/tomboulier/sandbox
 
 # Avec pipx
-pipx install git+https://github.com/thomas-boulier/sandbox
+pipx install git+https://github.com/tomboulier/sandbox
 
 # Sans prérequis
-curl -sSf https://raw.githubusercontent.com/thomas-boulier/sandbox/main/install.sh | sh
+curl -sSf https://raw.githubusercontent.com/tomboulier/sandbox/main/install.sh | sh
 ```
 
 Ajoute ensuite à ton `.zshrc` / `.bashrc` :
@@ -35,7 +35,7 @@ sandbox find <query>       # cherche dans les deux espaces
 
 ## Documentation
 
-[thomas-boulier.github.io/sandbox](https://thomas-boulier.github.io/sandbox)
+[tomboulier.github.io/sandbox](https://tomboulier.github.io/sandbox)
 
 ## Roadmap
 

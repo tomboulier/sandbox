@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 set -e
 
-REPO="thomas-boulier/sandbox"
+REPO="tomboulier/sandbox"
 
 echo "Installation de sandbox..."
 

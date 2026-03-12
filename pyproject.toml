@@ -16,8 +16,8 @@ dependencies = []
 sandbox = "sandbox.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/thomas-boulier/sandbox"
-Repository = "https://github.com/thomas-boulier/sandbox"
+Homepage = "https://github.com/tomboulier/sandbox"
+Repository = "https://github.com/tomboulier/sandbox"
 
 [tool.uv]
 dev-dependencies = [

@@ -1,7 +1,7 @@
 site_name: sandbox
 site_description: CLI pour gérer le cycle de vie des expérimentations de développement
-site_url: https://thomas-boulier.github.io/sandbox
-repo_url: https://github.com/thomas-boulier/sandbox
+site_url: https://tomboulier.github.io/sandbox
+repo_url: https://github.com/tomboulier/sandbox
 
 theme:
   name: material
