@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import os
 from datetime import date
 from pathlib import Path
 
@@ -82,6 +83,7 @@ def test_ls_sorts_by_most_recent(config: Config, tmp_path: Path) -> None:
     """ls() trie par date de modification décroissante."""
     old = config.sandbox_path / "2024-01-01-old"
     old.mkdir()
+    os.utime(old, (0, 0))  # force mtime à l'époque Unix (très ancien)
     new("recent", config)
     entries = ls(config=config)
     assert "recent" in entries[0].path.name
