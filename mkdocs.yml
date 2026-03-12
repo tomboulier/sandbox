@@ -1,0 +1,30 @@
+site_name: sandbox
+site_description: CLI pour gérer le cycle de vie des expérimentations de développement
+site_url: https://thomas-boulier.github.io/sandbox
+repo_url: https://github.com/thomas-boulier/sandbox
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Mode sombre
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Mode clair
+  features:
+    - navigation.instant
+    - content.code.copy
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            docstring_style: numpy
+
+nav:
+  - Accueil: index.md

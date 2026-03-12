@@ -1,0 +1,43 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "sandbox"
+version = "0.1.0"
+description = "CLI pour gérer le cycle de vie des expérimentations de développement"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Thomas Boulier" }]
+dependencies = []
+
+[project.scripts]
+sandbox = "sandbox.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/thomas-boulier/sandbox"
+Repository = "https://github.com/thomas-boulier/sandbox"
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=8.0",
+    "mypy>=1.10",
+    "ruff>=0.4",
+    "pre-commit>=3.7",
+    "mkdocs-material>=9.5",
+    "mkdocstrings[python]>=0.25",
+]
+
+[tool.ruff]
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+
+[tool.mypy]
+strict = true
+files = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
