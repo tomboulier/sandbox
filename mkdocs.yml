@@ -23,8 +23,12 @@ plugins:
   - mkdocstrings:
       handlers:
         python:
+          paths:
+            - src
           options:
             docstring_style: numpy
+            show_source: false
 
 nav:
   - Accueil: index.md
+  - Référence API: reference.md

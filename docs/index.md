@@ -20,6 +20,3 @@ curl -sSf https://raw.githubusercontent.com/tomboulier/sandbox/main/install.sh |
 sandbox --help
 ```
 
-## Référence API
-
-::: sandbox
