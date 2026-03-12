@@ -40,10 +40,10 @@ sandbox find <query>       # cherche dans les deux espaces
 ## Roadmap
 
 - [x] Structure du projet, CI/CD, conventions
-- [ ] `sandbox new <nom>` — créer une expérimentation datée
-- [ ] `sandbox ls [query]` — lister les expérimentations
-- [ ] `sandbox graduate <nom>` — promouvoir en projet
-- [ ] `sandbox demote <nom>` — rétrograder un projet en expérimentation
-- [ ] `sandbox find <query>` — chercher dans les deux espaces
-- [ ] `sandbox init` — intégration shell (cd automatique)
+- [x] `sandbox new <nom>` — créer une expérimentation datée
+- [x] `sandbox ls [query]` — lister les expérimentations
+- [x] `sandbox graduate <nom>` — promouvoir en projet
+- [x] `sandbox demote <nom>` — rétrograder un projet en expérimentation
+- [x] `sandbox find <query>` — chercher dans les deux espaces
+- [x] `sandbox init` — intégration shell (cd automatique)
 - [ ] Skill Claude Code `/sandbox`
