@@ -1,0 +1,32 @@
+---
+description: Coding and commit conventions for the sandbox project
+globs: ["**/*.py"]
+alwaysApply: true
+---
+
+# sandbox — Coding conventions
+
+## Stack
+Python 3.11+, src/ layout, uv, ruff, mypy strict, pytest.
+
+## Code
+- Type hints on every function signature
+- Docstrings in numpydoc format on public API
+- KISS, YAGNI, SOLID, DRY
+- Single responsibility, small functions (Clean Code / Bob Martin)
+- Named constants, no magic numbers
+- No comments restating the code — only explain *why*
+
+## Tests (TDD)
+- Write the failing test before the implementation
+- Test names describe behaviour: `test_new_creates_dated_directory`
+
+## Commits — Conventional Commits
+Format: `<type>(<scope>): <description>`
+- Imperative mood, English, max 72 chars, no trailing period
+- Types: feat, fix, docs, refactor, test, chore, perf, ci, build
+
+## Do not
+- Add unrequested features (YAGNI)
+- Refactor outside the scope of the current task
+- Add defensive code for impossible cases
