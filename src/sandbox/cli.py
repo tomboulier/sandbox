@@ -12,8 +12,8 @@ _SHELL_INIT = """\
 # sandbox shell integration
 # Source this in your .zshrc / .bashrc:
 #   eval "$(sandbox init)"
-sandbox() {{
-    local cmd="${{1:-}}"
+sandbox() {
+    local cmd="${1:-}"
     if [[ "$cmd" == "new" || "$cmd" == "graduate" || "$cmd" == "demote" ]]; then
         local output
         output=$(command sandbox "$@")
@@ -28,7 +28,7 @@ sandbox() {{
     else
         command sandbox "$@"
     fi
-}}
+}
 """
 
 
