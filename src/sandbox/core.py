@@ -186,6 +186,41 @@ def demote(name: str, config: Config) -> Path:
     return dest
 
 
+def goto(query: str, config: Config) -> Path:
+    """Trouve un répertoire unique dans les deux espaces (sandbox et projets).
+
+    Parameters
+    ----------
+    query : str
+        Sous-chaîne identifiant l'entrée.
+    config : Config
+        Configuration sandbox.
+
+    Returns
+    -------
+    Path
+        Chemin absolu du répertoire trouvé.
+
+    Raises
+    ------
+    FileNotFoundError
+        Si aucune entrée ne correspond.
+    """
+    matches: list[Path] = []
+    for path in config.sandbox_path.iterdir():
+        if path.is_dir() and query.lower() in path.name.lower():
+            matches.append(path)
+    for path in config.projects_path.iterdir():
+        if path.is_dir() and query.lower() in path.name.lower():
+            matches.append(path)
+    if not matches:
+        raise FileNotFoundError(f"No match for '{query}'")
+    exact = [m for m in matches if m.name.lower() == query.lower()]
+    if exact:
+        return exact[0]
+    return sorted(matches, key=lambda p: p.stat().st_mtime, reverse=True)[0]
+
+
 def _find_unique(query: str, directory: Path) -> Path:
     """Trouve un répertoire unique correspondant à query dans directory.
 

@@ -6,7 +6,7 @@ import argparse
 import sys
 
 from sandbox.config import Config
-from sandbox.core import Entry, Space, demote, find, graduate, ls, new
+from sandbox.core import Entry, Space, demote, find, goto, graduate, ls, new
 
 _SHELL_INIT = """\
 # sandbox shell integration
@@ -14,7 +14,7 @@ _SHELL_INIT = """\
 #   eval "$(sandbox init)"
 sandbox() {
     local cmd="${1:-}"
-    if [[ "$cmd" == "new" || "$cmd" == "graduate" || "$cmd" == "demote" ]]; then
+    if [[ "$cmd" == "new" || "$cmd" == "graduate" || "$cmd" == "demote" || "$cmd" == "cd" ]]; then
         local output
         output=$(command sandbox "$@")
         local exit_code=$?
@@ -78,6 +78,16 @@ def _handle_demote(args: argparse.Namespace, config: Config) -> int:
         return 1
 
 
+def _handle_goto(args: argparse.Namespace, config: Config) -> int:
+    try:
+        path = goto(args.query, config)
+        print(path)
+        return 0
+    except FileNotFoundError as e:
+        print(f"Error: {e}", file=sys.stderr)
+        return 1
+
+
 def _handle_find(args: argparse.Namespace, config: Config) -> int:
     results = find(args.query, config)
     if not results:
@@ -114,6 +124,9 @@ def _build_parser() -> argparse.ArgumentParser:
     )
     p_demote.add_argument("name", help="Nom (ou sous-chaîne) du projet.")
 
+    p_cd = sub.add_parser("cd", help="Aller dans une expérimentation ou un projet.")
+    p_cd.add_argument("query", help="Nom (ou sous-chaîne) de l'entrée.")
+
     p_find = sub.add_parser("find", help="Chercher dans les deux espaces.")
     p_find.add_argument("query", help="Sous-chaîne à rechercher.")
 
@@ -125,6 +138,7 @@ def _build_parser() -> argparse.ArgumentParser:
 _HANDLERS = {
     "new": _handle_new,
     "ls": _handle_ls,
+    "cd": _handle_goto,
     "graduate": _handle_graduate,
     "demote": _handle_demote,
     "find": _handle_find,
